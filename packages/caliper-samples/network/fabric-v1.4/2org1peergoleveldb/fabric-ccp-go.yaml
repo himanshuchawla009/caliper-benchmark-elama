@@ -69,6 +69,10 @@ channels:
     - id: simple
       version: v0
       language: golang
+      path: contract/fabric/simple/go
+    - id: elamachain
+      version: v0
+      language: golang
       path: contract/fabric/elamachain
 
 organizations:

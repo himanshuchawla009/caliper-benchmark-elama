@@ -66,23 +66,14 @@ channels:
         eventSource: true
 
     chaincodes:
-    - id: marbles
-      version: v0
-      language: golang
-      path: contract/fabric/marbles/go
-      metadataPath: src/contract/fabric/marbles/go/metadata
-    - id: drm
-      version: v0
-      language: golang
-      path: contract/fabric/drm
     - id: simple
       version: v0
       language: golang
       path: contract/fabric/simple/go
-    - id: smallbank
+    - id: elamachain
       version: v0
       language: golang
-      path: contract/fabric/smallbank
+      path: contract/fabric/elamachain
 
 organizations:
   Org1:

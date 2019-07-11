@@ -1,0 +1,93 @@
+Elamachain Chaincode Test
+
+Operating Systems: 16.04 LTS (64-bit) over Oracle VB
+
+
+sudo su
+
+apt-get install curl
+apt-get install python-pip
+
+Go lang 1.12.4
+wget https://storage.googleapis.com/golang/go1.12.4.linux-amd64.tar.gz
+tar -xvf go1.12.4.linux-amd64.tar.gz
+
+mkdir gopath
+gedit /etc/profile
+export GOPATH=/home/fabric/gopath
+export GOROOT=/home/fabric/go
+export PATH=$PATH:$GOROOT/bin
+source /etc/profile
+
+cd $GOPATH
+cd $GOROOT
+cd ..
+go version
+
+Docker Engine: Version 17.06.2
+wget https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce_17.06.2~ce-0~ubuntu_amd64.deb 
+dpkg -i docker-ce_17.06.2~ce-0~ubuntu_amd64.deb
+docker --version
+
+Docker-Compose: Version 1.24.0
+pip install docker-compose
+docker-compose --version
+
+Hyperledger Fabric
+
+curl -sSL http://bit.ly/2ysbOFE | bash -s 1.2.1
+cd fabric-samples
+mv bin ../
+
+gedit /etc/profile
+export FABRIC_HOME=/home/fabric
+export PATH=$PATH:$FABRIC_HOME/bin
+export FABRIC_CFG_PATH=$FABRIC_HOME/fabric-samples/first-network
+source /etc/profile
+
+//move chaincode folder to chaincode folder
+mv /home/fabric/Downloads/alma /home/fabric/fabric-samples/chaincode
+cd /home/fabric/fabric-samples/chaincode/alma
+
+move updated scripts from downloads folder to first-network.
+
+mv /home/fabric/Downloads/elmaTest.sh /home/fabric/fabric-samples/first-network
+mv /home/fabric/Downloads/testRun.sh /home/fabric/fabric-samples/first-network
+mv /home/fabric/Downloads/instantiate.sh /home/fabric/fabric-samples/first-network
+
+
+cd $FABRIC_CFG_PATH
+Delete the previously running dockers
+docker rm -f $(docker ps -aq)
+
+
+./byfn.sh generate
+
+./elmaTest.sh
+
+//this is new script to instantiate chaincode  (instantiate.sh)
+chmod +x instantiate.sh
+
+//instantiate chaincode on network
+./instantiate.sh
+
+//run the test transactions
+./testRun.sh
+
+
+Running unit test cases:-
+cd /home/fabric/fabric-samples/chaincode/alma
+
+//i have already installed packages given below ,you need to install them before running test cases
+go get github.com/onsi/ginkgo/ginkgo
+
+go get github.com/onsi/gomega/…
+
+go get  github.com/hyperledger/fabric/core/chaincode/shim
+
+//run unit tests
+go test -v
+
+
+
+

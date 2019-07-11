@@ -15,7 +15,7 @@
 'use strict';
 
 let shell = require('shelljs')
-let wallet= require('./wallet');
+let userAccountSigs = require('./accountSigs.js')
 
 module.exports.info  = 'generating user accounts';
 
@@ -45,55 +45,13 @@ module.exports.init = function(blockchain, context, args) {
  */
 async function generateWorkload() {
     let workload = [];
+
+    let sigsArray =  userAccountSigs.split(',');
+
     for(let i= 0; i < txnPerBatch; i++) {
         
-        const key = wallet.genKey();
-        console.log("ecdsa keys",key)
-        //getting address from ecdsa keys
-        const address = wallet.getWallet(key);
-        console.log("address",address)
-        //getting private key in pem file form from ecdsa key
-        const pem = await wallet.getPrivatekeyAsPem(key);
-
-        console.log("private pem",pem)
-
-        //encrypting private key pem file with pincode
-        const cipherString = wallet.getPrivateKeyAsCrypto(pem, '1111');
-
-        console.log("cipher string",cipherString)
-        //creating hash of json to be sent to chaincode
-        const json_hash = wallet.createAccount(key, ".ELAMA.");
-        // console.log(address)
-        console.log("json hash",json_hash)
-        // const t = new Date().getTime();
-        // const keyfile = {
-        //   enc: `enc_key_${address}_${t}.${delimiter.replace(/\./g, '').toLowerCase()}`,
-        //   pem: `pk-key_${address}_${t}.pem`,
-        // };
-
-        //encrypted file key 
-        //todo: save this in file system
-        //download(cipherString, keyfile.enc);
-
-        //unencrypted file , to do: sent to user
-        //download(pem, keyfile.pem);
-
-        //todo: save cipherstring,address in database
-        // return {
-        //   address,
-        //   cipherString,
-        //   json_hash,
-        //   pem,
-        //   keyfile,
-        // }; 
-
-        // res.status(200).json({
-        //     success:true,
-        //     address,
-        //     cipherString,
-        //     json_hash
-        // })
-        let args = [json_hash];
+      
+        let args = [sigsArray[i]];
         workload.push({
             chaincodeFunction: 'CreateAccount',
             chaincodeArguments: args,

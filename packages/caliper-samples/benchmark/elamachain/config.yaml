@@ -7,7 +7,7 @@ test:
     type: local
     number: 1
   rounds:
-  - label: open
+  - label: adminAccount
     description: Test description for the opening of an admin account through elamachain deployed chaincode
     txNumber:
     - 1

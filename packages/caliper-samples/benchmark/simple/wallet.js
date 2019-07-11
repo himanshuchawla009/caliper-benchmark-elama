@@ -124,7 +124,7 @@ function createAccount(key, delimiter) {
   };
   rq = JSON.stringify(rq);
   const rq64 = base64.encode(rq);
-  // console.log(key.sign(sha256(rq64)))
+  //console.log(key.sign(sha256(rq64)))
   const signed = key.sign(sha256(rq64)).toDER('hex');
   // return rq64 + ".IAMCOIN." + signed
   return rq64 + delimiter + signed;
@@ -144,7 +144,7 @@ function getKeyFromPrivatePem(pem_str) {
     let  { stdout, stderr, code }  =shell.exec(`shopt -s expand_aliases; create`,
       { shell: '/bin/bash',silent:true });
 
-      console.log(stdout)
+      console.log(stdout,"account signature")
       return stdout
 
   } catch (error) {

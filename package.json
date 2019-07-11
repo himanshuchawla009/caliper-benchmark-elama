@@ -20,7 +20,12 @@
     "*",
     "src/comm/template/report.html"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "ec-key": "0.0.2",
+    "js-crypto-key-utils": "^0.6.6",
+    "key-encoder": "^2.0.2",
+    "sha3": "^2.0.4"
+  },
   "devDependencies": {
     "lerna": "2.0.0"
   },

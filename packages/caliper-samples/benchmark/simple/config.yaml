@@ -18,19 +18,19 @@ test:
     arguments:
       money: 10000
     callback: benchmark/simple/open.js
-  - label: mint
-    description: Test description for the minting token transaction through the deployed elamachain chaincode
-    txNumber:
-    - 200
-    rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 8
-    arguments:
-      money: 10000
-    callback: benchmark/simple/mint.js
-  - label: mint
-    description: Test description for the minting token transaction through the deployed elamachain chaincode
+  # - label: mint
+  #   description: Test description for the minting token transaction through the deployed elamachain chaincode
+  #   txNumber:
+  #   - 200
+  #   rateControl:
+  #   - type: fixed-rate
+  #     opts:
+  #       tps: 8
+  #   arguments:
+  #     money: 10000
+  #   callback: benchmark/simple/mint.js
+  - label: createUserAccount
+    description: Test description for the creating user account transaction through the deployed elamachain chaincode
     txNumber:
     - 200
     rateControl:

@@ -1,14 +1,14 @@
 ---
 test:
-  name: elamachain
-  description: This is an elamchain benchmark for caliper, to test the backend DLT's
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
     performance with simple account opening & querying transactions
   clients:
     type: local
     number: 1
   rounds:
-  - label: adminAccount
-    description: Test description for the opening of an admin account through elamachain deployed chaincode
+  - label: open
+    description: Test description for the opening of an account through the deployed chaincode
     txNumber:
     - 1
     rateControl:
@@ -18,6 +18,7 @@ test:
     arguments:
       money: 10000
     callback: benchmark/elamachain/admin.js
+
 monitor:
   type:
   - docker

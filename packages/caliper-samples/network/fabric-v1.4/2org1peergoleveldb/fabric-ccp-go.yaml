@@ -66,7 +66,7 @@ channels:
         eventSource: true
 
     chaincodes:
-    - id: elamachain
+    - id: simple
       version: v0
       language: golang
       path: contract/fabric/elamachain

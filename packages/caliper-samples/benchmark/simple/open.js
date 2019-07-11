@@ -16,7 +16,6 @@
 
 module.exports.info  = 'opening accounts';
 
-require('./wallet.js')
 
 //let account_array = [];
 let txnPerBatch;

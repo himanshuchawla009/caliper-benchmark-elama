@@ -15,6 +15,7 @@
 'use strict';
 
 let shell = require('shelljs')
+let wallet= require('./wallet');
 
 module.exports.info  = 'generating user accounts';
 

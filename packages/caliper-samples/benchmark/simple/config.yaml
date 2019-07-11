@@ -21,7 +21,7 @@ test:
   - label: mint
     description: Test description for the minting token transaction through the deployed elamachain chaincode
     txNumber:
-    - 1
+    - 200
     rateControl:
     - type: fixed-rate
       opts:

@@ -25,7 +25,7 @@ test:
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 50
+        tps: 8
     arguments:
       money: 10000
     callback: benchmark/simple/mint.js

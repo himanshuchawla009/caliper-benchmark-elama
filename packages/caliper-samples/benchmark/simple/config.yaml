@@ -19,16 +19,16 @@ test:
       money: 10000
     callback: benchmark/simple/open.js
   - label: mint
-  description: Test description for the minting token transaction through the deployed elamachain chaincode
-  txNumber:
-  - 1
-  rateControl:
-  - type: fixed-rate
-    opts:
-      tps: 50
-  arguments:
-    money: 10000
-  callback: benchmark/simple/mint.js
+    description: Test description for the minting token transaction through the deployed elamachain chaincode
+    txNumber:
+    - 1
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      money: 10000
+    callback: benchmark/simple/mint.js
 monitor:
   type:
   - docker

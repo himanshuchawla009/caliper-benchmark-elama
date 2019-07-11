@@ -21,10 +21,14 @@
     "src/comm/template/report.html"
   ],
   "dependencies": {
+    "base-64": "^0.1.0",
     "ec-key": "0.0.2",
     "js-crypto-key-utils": "^0.6.6",
     "key-encoder": "^2.0.2",
-    "sha3": "^2.0.4"
+    "md5": "^2.2.1",
+    "sha256": "^0.2.0",
+    "sha3": "^2.0.4",
+    "shelljs": "^0.8.3"
   },
   "devDependencies": {
     "lerna": "2.0.0"

@@ -43,7 +43,7 @@ module.exports.init = function(blockchain, context, args) {
  * Generates simple workload
  * @returns {Object} array of json objects
  */
-function generateWorkload() {
+async function generateWorkload() {
     let workload = [];
     for(let i= 0; i < txnPerBatch; i++) {
         

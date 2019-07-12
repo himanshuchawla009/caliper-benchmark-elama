@@ -52,6 +52,7 @@ async function generateWorkload() {
         
       
         let args = [sigsArray[i]];
+        console.log("user account args",args)
         workload.push({
             chaincodeFunction: 'CreateAccount',
             chaincodeArguments: args,

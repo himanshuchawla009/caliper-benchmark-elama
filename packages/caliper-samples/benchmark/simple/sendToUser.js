@@ -48,6 +48,7 @@ function generateWorkload() {
     let workload = [];
     let userSigsArray=userSigs.split(',');
 
+    console.log("transaction number",txNumber);
         let txSig=userSigsArray[txNumber]
         
         workload.push({

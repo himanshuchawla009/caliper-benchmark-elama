@@ -14,27 +14,16 @@
 
 'use strict';
 
-let shell = require('shelljs')
+module.exports.info  = 'transactions for sending tokens to user';
 
-module.exports.info  = 'minting tokens';
+let userSigs=require('./exchangeTxs.js')
 
-function mintTx(amount) {
 
-    try {
-      let  { stdout, stderr, code } =shell.exec(`shopt -s expand_aliases; mint ${amount}`,
-        { shell: '/bin/bash' });
-        console.log(stdout)
-        return stdout
-    } catch (error) {
-      console.log(error)
-    }
-  
-}
 //let account_array = [];
 let txnPerBatch;
+
 //let initMoney;
 let bc, contx;
-
 module.exports.init = function(blockchain, context, args) {
   
     if(!args.hasOwnProperty('txnPerBatch')) {
@@ -56,15 +45,14 @@ module.exports.init = function(blockchain, context, args) {
  */
 function generateWorkload() {
     let workload = [];
+    let userSigsArray=userSigs.split(',');
     for(let i= 0; i < txnPerBatch; i++) {
-        let json_hash =  mintTx(10000);
-        let trimmedHash =  json_hash.replace(/\r?\n|\r/g, " ");
-        let args = [trimmedHash.trim()];
-        console.log(args,"mint args")
 
+        let txSig=userSigsArray[i]
+        
         workload.push({
-            chaincodeFunction: 'Mint',
-            chaincodeArguments: args,
+            chaincodeFunction: 'Exchange',
+            chaincodeArguments: [txSig],
         });
 
     }

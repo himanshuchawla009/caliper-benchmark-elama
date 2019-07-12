@@ -58,9 +58,10 @@ function generateWorkload() {
     let workload = [];
     for(let i= 0; i < txnPerBatch; i++) {
         let json_hash =  mintTx(10);
-        console.log("json_has",json_hash)
         let trimmedHash =  json_hash.replace(/\r?\n|\r/g, " ");
         let args = [trimmedHash.trim()];
+        console.log(args,"mint args")
+
         workload.push({
             chaincodeFunction: 'Mint',
             chaincodeArguments: args,

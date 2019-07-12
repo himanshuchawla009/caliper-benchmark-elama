@@ -38,7 +38,7 @@ test:
       opts:
         tps: 8
     arguments:
-      money: 10000
+      txnPerBatch: 30
     callback: benchmark/simple/userAccount.js
 monitor:
   type:

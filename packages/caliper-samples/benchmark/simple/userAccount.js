@@ -24,6 +24,7 @@ let txnPerBatch;
 //let initMoney;
 let bc, contx;
 
+let userSig = 'eyJvcmlnaW5hbCI6IiIsInNpZ25hdHVyZSI6IiIsIm5vbmNlIjoiIiwiYWN0aW9uIjoiIiwiZnJvbSI6ImFjNmVkYjljZTYxNjgwZTA2ZGViM2JjZjViYjJhN2FkNmFiMjVmNGY5ZDhjYmY4OGMxN2Y4YmYxNjQxMWZiNDMiLCJ0byI6ImFjNmVkYjljZTYxNjgwZTA2ZGViM2JjZjViYjJhN2FkNmFiMjVmNGY5ZDhjYmY4OGMxN2Y4YmYxNjQxMWZiNDMiLCJhbW91bnQiOiIiLCJwdWJrZXkiOiItLS0tLUJFR0lOIEVDRFNBIFBVQkxJQyBLRVktLS0tLVxuTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFclZreW9zdTVKQmJBdE5GN01qMWp4V3ZLQjZZSVxuZ0g4aURic0l4N2xhL0tCajRtV1ZMTkJwc0I1VUJ2SmRIaWFicDJwSFhoSGRFUjhvaHBLd3dabXVtQT09XG4tLS0tLUVORCBFQ0RTQSBQVUJMSUMgS0VZLS0tLS1cbiJ9Cg'
 module.exports.init = function(blockchain, context, args) {
   
     if(!args.hasOwnProperty('txnPerBatch')) {
@@ -55,7 +56,7 @@ async function generateWorkload() {
         console.log("user account args",args)
         workload.push({
             chaincodeFunction: 'CreateAccount',
-            chaincodeArguments: args,
+            chaincodeArguments: [userSig],
         });
 
     }

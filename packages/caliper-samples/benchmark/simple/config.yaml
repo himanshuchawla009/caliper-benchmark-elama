@@ -51,7 +51,7 @@ test:
     arguments:
       txnPerBatch: 30
     callback: benchmark/simple/sendToUser.js
-   - label: sending from user to user
+  - label: sending from user to user
     description: Test description for the creating user account transaction through the deployed elamachain chaincode
     txNumber:
     - 30

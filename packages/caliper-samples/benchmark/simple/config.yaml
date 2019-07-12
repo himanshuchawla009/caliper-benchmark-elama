@@ -29,32 +29,32 @@ test:
     arguments:
       money: 10000
     callback: benchmark/simple/mint.js
-   - label: Query User Balance
+  - label: Query User Balance
     description: Test description for the creating user account transaction through the deployed elamachain chaincode
     txNumber:
-    - 1000
+    - 1500
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 50
+        tps: 300
     arguments:
       txnPerBatch: 50
     callback: benchmark/simple/queryBalance.js
   - label: createUserAccount
     description: Test description for the creating user account transaction through the deployed elamachain chaincode
     txNumber:
-    - 300
+    - 2000
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 20
+        tps: 250
     arguments:
       txnPerBatch: 1
     callback: benchmark/simple/userAccount.js
   - label: sendToUser
     description: Test description for the creating user account transaction through the deployed elamachain chaincode
     txNumber:
-    - 300
+    - 150
     rateControl:
     - type: fixed-rate
       opts:
@@ -65,11 +65,11 @@ test:
   - label: userToUser
     description: Test description for the creating user account transaction through the deployed elamachain chaincode
     txNumber:
-    - 600
+    - 900
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 9
+        tps: 300
     arguments:
       txnPerBatch: 1
     callback: benchmark/simple/userTransaction.js

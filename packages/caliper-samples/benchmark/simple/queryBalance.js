@@ -14,12 +14,10 @@
 
 'use strict';
 
-module.exports.info  = 'opening accounts';
+module.exports.info  = 'querying balance';
 
 
-let userSigs=require('./userAccountSigs.js')
 
-let txns = 0;
 //let account_array = [];
 let txnPerBatch;
 
@@ -47,20 +45,17 @@ module.exports.init = function(blockchain, context, args) {
  */
 function generateWorkload() {
     let workload = [];
-    let userSigsArray=userSigs.split(',');
     for(let i= 0; i < txnPerBatch; i++) {
  
          
-        let txSig=userSigsArray[i + txns]
         
         workload.push({
-            chaincodeFunction: 'CreateAccount',
-            chaincodeArguments: [txSig],
+            chaincodeFunction: 'Balance',
+            chaincodeArguments: ["960c86d4acd8a0705a38495c37ca48424cd421f387f6913c390af1a57e9fbdc1"],
         });
 
     }
 
-    txns=txns + txnPerBatch;
 
     return workload;
 }

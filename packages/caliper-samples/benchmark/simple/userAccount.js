@@ -15,7 +15,7 @@
 'use strict';
 
 let shell = require('shelljs')
-let userAccountSigs = require('./accountSigs.js')
+let userAccountSigs = require('./userAccountSigs.js')
 
 module.exports.info  = 'generating user accounts';
 

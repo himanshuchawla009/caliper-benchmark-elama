@@ -40,6 +40,17 @@ test:
     arguments:
       txnPerBatch: 30
     callback: benchmark/simple/userAccount.js
+  - label: sendToUser
+    description: Test description for the creating user account transaction through the deployed elamachain chaincode
+    txNumber:
+    - 30
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 8
+    arguments:
+      txnPerBatch: 1
+    callback: benchmark/simple/sendToUser.js
 monitor:
   type:
   - docker

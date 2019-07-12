@@ -21,6 +21,7 @@ let userSigs=require('./exchangeTxs.js')
 
 //let account_array = [];
 let txnPerBatch;
+let txNumber =0;
 
 //let initMoney;
 let bc, contx;
@@ -46,16 +47,15 @@ module.exports.init = function(blockchain, context, args) {
 function generateWorkload() {
     let workload = [];
     let userSigsArray=userSigs.split(',');
-    for(let i= 0; i < txnPerBatch; i++) {
 
-        let txSig=userSigsArray[i]
+        let txSig=userSigsArray[txNumber]
         
         workload.push({
             chaincodeFunction: 'Exchange',
             chaincodeArguments: [txSig],
         });
 
-    }
+    txNumber++;
     return workload;
 }
 

@@ -7,39 +7,39 @@ test:
     type: local
     number: 1
   rounds:
-  - label: open
-    description: Test description for the opening of an account through the deployed elamachain chaincode
-    txNumber:
-    - 1
-    rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 50
-    arguments:
-      money: 10000
-    callback: benchmark/simple/open.js
-  - label: mint
-    description: Test description for the minting token transaction through the deployed elamachain chaincode
-    txNumber:
-    - 200
-    rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 8
-    arguments:
-      money: 10000
-    callback: benchmark/simple/mint.js
-  - label: Query User Balance
-    description: Test description for the creating user account transaction through the deployed elamachain chaincode
-    txNumber:
-    - 1500
-    rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 300
-    arguments:
-      txnPerBatch: 50
-    callback: benchmark/simple/queryBalance.js
+  # - label: open
+  #   description: Test description for the opening of an account through the deployed elamachain chaincode
+  #   txNumber:
+  #   - 1
+  #   rateControl:
+  #   - type: fixed-rate
+  #     opts:
+  #       tps: 50
+  #   arguments:
+  #     money: 10000
+  #   callback: benchmark/simple/open.js
+  # - label: mint
+  #   description: Test description for the minting token transaction through the deployed elamachain chaincode
+  #   txNumber:
+  #   - 200
+  #   rateControl:
+  #   - type: fixed-rate
+  #     opts:
+  #       tps: 8
+  #   arguments:
+  #     money: 10000
+  #   callback: benchmark/simple/mint.js
+  # - label: Query User Balance
+  #   description: Test description for the creating user account transaction through the deployed elamachain chaincode
+  #   txNumber:
+  #   - 1500
+  #   rateControl:
+  #   - type: fixed-rate
+  #     opts:
+  #       tps: 300
+  #   arguments:
+  #     txnPerBatch: 50
+  #   callback: benchmark/simple/queryBalance.js
   - label: createUserAccount
     description: Test description for the creating user account transaction through the deployed elamachain chaincode
     txNumber:
@@ -47,32 +47,32 @@ test:
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 250
+        tps: 3000
     arguments:
       txnPerBatch: 1
     callback: benchmark/simple/userAccount.js
-  - label: sendToUser
-    description: Test description for the creating user account transaction through the deployed elamachain chaincode
-    txNumber:
-    - 150
-    rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 8
-    arguments:
-      txnPerBatch: 1
-    callback: benchmark/simple/sendToUser.js
-  - label: userToUser
-    description: Test description for the creating user account transaction through the deployed elamachain chaincode
-    txNumber:
-    - 900
-    rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 300
-    arguments:
-      txnPerBatch: 1
-    callback: benchmark/simple/userTransaction.js
+  # - label: sendToUser
+  #   description: Test description for the creating user account transaction through the deployed elamachain chaincode
+  #   txNumber:
+  #   - 150
+  #   rateControl:
+  #   - type: fixed-rate
+  #     opts:
+  #       tps: 8
+  #   arguments:
+  #     txnPerBatch: 1
+  #   callback: benchmark/simple/sendToUser.js
+  # - label: userToUser
+  #   description: Test description for the creating user account transaction through the deployed elamachain chaincode
+  #   txNumber:
+  #   - 900
+  #   rateControl:
+  #   - type: fixed-rate
+  #     opts:
+  #       tps: 300
+  #   arguments:
+  #     txnPerBatch: 1
+  #   callback: benchmark/simple/userTransaction.js
 monitor:
   type:
   - docker

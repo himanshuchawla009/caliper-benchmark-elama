@@ -43,13 +43,13 @@ test:
   - label: createUserAccount
     description: Test description for the creating user account transaction through the deployed elamachain chaincode
     txNumber:
-    - 2000
+    - 30
     rateControl:
     - type: fixed-rate
       opts:
         tps: 1000
     arguments:
-      txnPerBatch: 1
+      txnPerBatch: 30
     callback: benchmark/simple/userAccount.js
   # - label: sendToUser
   #   description: Test description for the creating user account transaction through the deployed elamachain chaincode

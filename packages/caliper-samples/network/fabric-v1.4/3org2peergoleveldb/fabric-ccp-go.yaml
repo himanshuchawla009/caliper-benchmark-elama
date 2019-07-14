@@ -85,10 +85,14 @@ channels:
         eventSource: true
 
     chaincodes:
-    - id: simple
+    # - id: simple
+    #   version: v0
+    #   language: golang
+    #   path: contract/fabric/simple/go
+    - id: smallbank
       version: v0
       language: golang
-      path: contract/fabric/simple/go
+      path: contract/fabric/smallbank
 
 organizations:
   Org1:

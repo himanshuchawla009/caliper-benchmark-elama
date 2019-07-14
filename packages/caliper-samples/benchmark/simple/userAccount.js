@@ -47,11 +47,10 @@ module.exports.init = function(blockchain, context, args) {
  */
 function generateWorkload() {
     let workload = [];
-    let userSigsArray=userSigs.split(',');
-    for(let i= 0; i < txnPerBatch; i++) {
+=    for(let i= 0; i < txnPerBatch; i++) {
  
          
-        let txSig=userSigsArray[i + txns]
+        let txSig=userSigs[i + txns]
         
         workload.push({
             chaincodeFunction: 'CreateAccount',

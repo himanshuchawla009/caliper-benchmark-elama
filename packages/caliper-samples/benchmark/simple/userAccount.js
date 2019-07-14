@@ -51,7 +51,7 @@ function generateWorkload() {
     for(let i= 0; i < txnPerBatch; i++) {
  
          
-        let txSig=userSigsArray[i]
+        let txSig=userSigsArray[i + txns]
         
         workload.push({
             chaincodeFunction: 'CreateAccount',

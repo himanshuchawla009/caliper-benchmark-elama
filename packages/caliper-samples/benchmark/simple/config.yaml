@@ -47,7 +47,7 @@ test:
     rateControl:
     - type: fixed-rate
       opts:
-        tps: 3000
+        tps: 1000
     arguments:
       txnPerBatch: 1
     callback: benchmark/simple/userAccount.js

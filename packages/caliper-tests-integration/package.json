@@ -24,6 +24,6 @@
     "homepage": "https://github.com/hyperledger/caliper#readme",
     "devDependencies": {
       "pm2": "2.10.1",
-      "verdaccio": "2.6.4"
+      "verdaccio": "4.3.4"
     }
   }
